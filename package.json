@@ -1,0 +1,16 @@
+{
+  "name": "field-notes-blog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.12",
+    "astro": "^5.13.5"
+  }
+}
