@@ -1,6 +1,6 @@
 export const site = {
   title: "Field Notes",
-  description: "Ideas on work, life, and everything in between.",
+  description: "An independent journal of ideas, evidence, and inquiry.",
   author: "Your Name",
   email: "hello@example.com",
 };

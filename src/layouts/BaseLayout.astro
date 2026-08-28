@@ -8,7 +8,7 @@ interface Props {
   image?: string;
 }
 
-const { title, description = site.description, image = `${import.meta.env.BASE_URL}og.png` } = Astro.props;
+const { title, description = site.description, image = `${import.meta.env.BASE_URL}og-academic.png` } = Astro.props;
 const pageTitle = title ? `${title} — ${site.title}` : site.title;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(image, Astro.site);
@@ -39,18 +39,19 @@ const socialImage = new URL(image, Astro.site);
     <a class="skip-link" href="#content">Skip to content</a>
     <header class="site-header">
       <a class="wordmark" href={import.meta.env.BASE_URL} aria-label={`${site.title} home`}>
-        <span class="wordmark-dot"></span>{site.title}
+        <span class="wordmark-title">{site.title}</span>
+        <span class="wordmark-subtitle">Independent Journal of Inquiry</span>
       </a>
       <nav aria-label="Main navigation">
-        <a href={import.meta.env.BASE_URL}>Writing</a>
+        <a href={import.meta.env.BASE_URL}>Essays</a>
         <a href={`${import.meta.env.BASE_URL}about/`}>About</a>
         <a href={`${import.meta.env.BASE_URL}rss.xml`}>RSS</a>
       </nav>
     </header>
     <main id="content"><slot /></main>
     <footer class="site-footer">
-      <p>© {new Date().getFullYear()} {site.author}</p>
-      <p>Made with care and curiosity.</p>
+      <div><strong>{site.title}</strong><span>{site.description}</span></div>
+      <p>© {new Date().getFullYear()} {site.author} · ISSN forthcoming</p>
     </footer>
   </body>
 </html>
