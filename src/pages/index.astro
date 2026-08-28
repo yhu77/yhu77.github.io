@@ -1,14 +1,6 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { site } from "../data/site";
-
-const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
-);
-const featured = posts.find((post) => post.data.featured) ?? posts[0];
-const remaining = posts.filter((post) => post.id !== featured.id);
-const formatDate = (date: Date) => new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }).format(date);
 ---
 
 <BaseLayout>
@@ -18,33 +10,12 @@ const formatDate = (date: Date) => new Intl.DateTimeFormat("en", { month: "short
     <p class="hero-intro">{site.description} Written slowly, shared when ready.</p>
   </section>
 
-  <section class="featured shell" aria-labelledby="featured-title">
-    <div class="section-rule"><span>Featured essay</span><span>01</span></div>
-    <a class="featured-card" href={`${import.meta.env.BASE_URL}posts/${featured.id}/`}>
-      <div class="featured-art" aria-hidden="true"><span>Read<br />slowly.</span></div>
-      <div class="featured-copy">
-        <p class="post-meta">{featured.data.category} · {formatDate(featured.data.publishedAt)}</p>
-        <h2 id="featured-title">{featured.data.title}</h2>
-        <p>{featured.data.description}</p>
-        <span class="read-link">Read the essay <span aria-hidden="true">↗</span></span>
-      </div>
-    </a>
-  </section>
-
-  <section class="latest shell" aria-labelledby="latest-title">
-    <div class="section-rule"><h2 id="latest-title">Latest notes</h2><span>{String(remaining.length).padStart(2, "0")}</span></div>
-    <div class="post-list">
-      {remaining.map((post, index) => (
-        <a class="post-row" href={`${import.meta.env.BASE_URL}posts/${post.id}/`}>
-          <span class="post-number">{String(index + 2).padStart(2, "0")}</span>
-          <span class="post-row-main">
-            <span class="post-meta">{post.data.category} · {formatDate(post.data.publishedAt)}</span>
-            <strong>{post.data.title}</strong>
-            <span>{post.data.description}</span>
-          </span>
-          <span class="post-arrow" aria-hidden="true">↗</span>
-        </a>
-      ))}
+  <section class="empty-journal shell" aria-labelledby="empty-title">
+    <div class="section-rule"><span>Writing</span><span>00</span></div>
+    <div class="empty-card">
+      <p class="eyebrow">The beginning</p>
+      <h2 id="empty-title">A blank page,<br /><em>for now.</em></h2>
+      <p>The first note is still taking shape. This journal will begin when there is something worth sharing.</p>
     </div>
   </section>
 

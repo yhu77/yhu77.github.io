@@ -22,6 +22,12 @@ nav a:hover,.text-link:hover { color:var(--accent); }
 .hero h1 em,.about h1 em { color:var(--accent); font-weight:300; }
 .hero-intro { color:var(--muted); margin:0 0 6px; max-width:290px; font-size:20px; }
 .featured,.latest { padding:78px 0; }
+.empty-journal { padding:78px 0; }
+.empty-card { min-height:420px; border:1px solid var(--line); padding:55px; display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden; }
+.empty-card::after { content:""; position:absolute; width:300px; height:300px; border:1px solid var(--line); border-radius:50%; right:-70px; top:-90px; box-shadow:0 0 0 45px rgba(203,199,187,.25),0 0 0 90px rgba(203,199,187,.16); }
+.empty-card h2 { font-size:clamp(52px,7vw,82px); line-height:.9; letter-spacing:-.045em; font-weight:300; margin:24px 0; }
+.empty-card h2 em { color:var(--accent); font-weight:300; }
+.empty-card>p:last-child { color:var(--muted); max-width:440px; margin:0; }
 .section-rule { border-top:1px solid var(--ink); padding-top:12px; margin-bottom:32px; display:flex; justify-content:space-between; font-family:var(--mono); text-transform:uppercase; letter-spacing:.08em; font-size:11px; }
 .section-rule h2 { margin:0; font:inherit; }
 .featured-card { display:grid; grid-template-columns:1fr 1fr; text-decoration:none; background:#e5dfd0; }
@@ -68,6 +74,8 @@ nav a:hover,.text-link:hover { color:var(--accent); }
   .hero { min-height:520px; grid-template-columns:1fr; padding:60px 0; gap:45px; }
   .hero h1,.about h1 { font-size:clamp(58px,18vw,92px); }
   .featured,.latest { padding:55px 0; }
+  .empty-journal { padding:55px 0; }
+  .empty-card { min-height:360px; padding:32px 25px; }
   .featured-card { grid-template-columns:1fr; }
   .featured-art { min-height:320px; }
   .featured-copy { padding:34px 26px; min-height:410px; }
