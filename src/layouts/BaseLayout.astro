@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body><slot /></body>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <nav aria-label="Primary"><slot name="navigation" /></nav>
+      </div>
+    </header>
+    <main id="content">
+      <div class="content-column"><slot /></div>
+    </main>
+    <footer class="site-footer"><slot name="footer" /></footer>
+  </body>
 </html>
